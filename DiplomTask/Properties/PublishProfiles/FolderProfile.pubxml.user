@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Hospital</_PublishTargetUrl>
+    <History>True|2022-06-21T16:37:22.8452778Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Server=(localdb)\MSSQLLocalDB">
+      <Value>yes</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Database=Patients">
+      <Value>yes</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Trusted_Connection=True">
+      <Value>yes</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

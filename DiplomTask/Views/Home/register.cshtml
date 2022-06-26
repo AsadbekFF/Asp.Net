@@ -1,0 +1,398 @@
+﻿@model Patient
+@using Microsoft.Extensions.Http;
+@{ 
+    ViewData["Title"] = "register";
+} 
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <!--	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">-->
+    <title>Регистрация - Региональный портал медицинских услуг</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/css/videochat.css" rel="stylesheet" type="text/css">
+    <!--<link href="/design/common_new/css/resolution-styles.css" rel="stylesheet" type="text/css">-->
+    <link href='~/css/fonts.css' rel='stylesheet' type='text/css'>
+    <link href="~/css/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="~/css/slick/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="~/css/slick/slick-add.css" rel="stylesheet" type="text/css">
+
+    <link rel="shortcut icon" href="~img/favicons/fav.png" type="image/x-icon">
+
+
+    <script src="~/js/locale/ru.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.inputmask.min.js"></script>
+    <script>REGION = 'omsk_new';</script>
+    <script src="~/js/main.js"></script>
+</head>
+<body class="noLogin">
+    <div class="bodyWrapper">
+        <div class="popup yesno">
+            <span class="close"></span>
+            <div class="alert"></div>
+        </div>
+        <div class="cap">
+            <div class="wrapper">
+                <div class="burger"><i class="burger-menu"></i></div>
+                <div class="logo">
+                    <h1><a asp-action="Index"><img src="~/img/logo.png" alt="Региональный портал медицинских услуг"></a></h1>
+                </div>
+                <div class="name">
+                    <h1><a asp-action="Index">Региональный портал медицинских услуг</a></h1>
+                </div>
+                <div class="region">
+                    <ul class="closed">
+                        <li><a href="https://www.google.ru/maps/place/3-Oilaviy+poliklinika,+%D0%A1%D0%B5%D0%BC%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F+%D0%BF%D0%BE%D0%BB%D0%B8%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B0+%E2%84%963/40.3664265,71.7784742,17z/data=!4m5!3m4!1s0x38bb84bbb1b510f3:0x89945aca0d690a26!8m2!3d40.3669506!4d71.7776288">Ферганская область</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="content">
+            <div class="wrapper">
+                <h1>Регистрация</h1>
+                @using (Html.BeginForm("Patient", "Home", FormMethod.Post))
+            {
+                    <form class="register-form" method="post" id="add-box" action="" accept-charset="utf-8">
+                        <div class="cols">
+                            <div class="cols">
+                                <p>
+                                    <label>К какому врачу? *</label>
+                                    @Html.DropDownListFor(x => x.MedicHelp, new List<SelectListItem>
+                               {
+                                   new SelectListItem(text: "Травматолог", value: "Травматолог"),
+                                   new SelectListItem(text: "Анестезиолог", value: "Анестезиолог"),
+                                   new SelectListItem(text: "Хирург", value: "Хирург"),
+                                   new SelectListItem(text: "Стоматолог", value: "Стоматолог"),
+                                   new SelectListItem(text: "Эндокринолог", value: "Эндокринолог"),
+                                   new SelectListItem(text: "ЛОР", value: "ЛОР"),
+                                   new SelectListItem(text: "Нейрохирург", value: "Нейрохирург"),
+                                   new SelectListItem(text: "Гастроэнтеролог", value: "Гастроэнтеролог"),
+                                   new SelectListItem(text: "Гинеколог", value: "Гинеколог"),
+                                   new SelectListItem(text: "ЭХО", value: "ЭХО"),
+                                   new SelectListItem(text: "Эпидемиолог", value: "Эпидемиолог"),
+                                   new SelectListItem(text: "Проктолог", value: "Проктолог"),
+                                   new SelectListItem(text: "Ренген", value: "Ренген"),
+                                   new SelectListItem(text: "Реанимация", value: "Реанимация"),
+                                   new SelectListItem(text: "Кардиолог", value: "Кардиолог", true),
+
+                               })
+                                    <br>
+                                    <span class="error" rel="town-id"></span>
+                                </p>
+
+                                <div class="col50">
+                                    <p>&nbsp;</p>
+                                </div>
+
+                            </div>
+                            <h5><span>Личные данные</span></h5>
+                            <div class="col50">
+                                <p>
+                                    <label>Фамилия *</label>
+                                    @Html.TextBoxFor(x => x.SurName)
+                                    <span class="error" rel="surname-input"></span>
+                                </p>
+
+                                <p>
+                                    <label>Имя *</label>
+                                    @Html.TextBoxFor(x => x.Name)
+                                    <span class="error" rel="first-name-input"></span>
+                                </p>
+                                <p>
+                                    <label>Отчество</label>
+                                    @Html.TextBoxFor(x => x.MiddleName)
+                                    <span class="error" rel="second-name-input"></span>
+                                </p>
+                                <p>
+                                    <label>Дата рождения *</label>
+                                    @Html.DropDownListFor(x => x.DateOfBirth.Time, new List<SelectListItem>
+                               {
+                                   new SelectListItem(text: "01", value: "1", false, false),
+                                   new SelectListItem(text: "02", value: "2", false, false),
+                                   new SelectListItem(text: "03", value: "3"),
+                                   new SelectListItem(text: "04", value: "4"),
+                                   new SelectListItem(text: "05", value: "5"),
+                                   new SelectListItem(text: "06", value: "6"),
+                                   new SelectListItem(text: "07", value: "7"),
+                                   new SelectListItem(text: "08", value: "8"),
+                                   new SelectListItem(text: "09", value: "9"),
+                                   new SelectListItem(text: "10", value: "10"),
+                                   new SelectListItem(text: "11", value: "11"),
+                                   new SelectListItem(text: "12", value: "12"),
+                                   new SelectListItem(text: "13", value: "13"),
+                                   new SelectListItem(text: "14", value: "14"),
+                                   new SelectListItem(text: "15", value: "15"),
+                                   new SelectListItem(text: "16", value: "16"),
+                                   new SelectListItem(text: "17", value: "17"),
+                                   new SelectListItem(text: "18", value: "18"),
+                                   new SelectListItem(text: "19", value: "19"),
+                                   new SelectListItem(text: "20", value: "20"),
+                                   new SelectListItem(text: "21", value: "21"),
+                                   new SelectListItem(text: "22", value: "22"),
+                                   new SelectListItem(text: "23", value: "23"),
+                                   new SelectListItem(text: "24", value: "24"),
+                                   new SelectListItem(text: "25", value: "25"),
+                                   new SelectListItem(text: "26", value: "26"),
+                                   new SelectListItem(text: "27", value: "27"),
+                                   new SelectListItem(text: "28", value: "28"),
+                                   new SelectListItem(text: "29", value: "29"),
+                                   new SelectListItem(text: "30", value: "30"),
+                                   new SelectListItem(text: "31", value: "31")
+                               })
+                                    @Html.DropDownListFor(x => x.DateOfBirth.Month, new List<SelectListItem>
+                               {
+                                   new SelectListItem(text: "январь", value: "1"),
+                                   new SelectListItem(text: "февраль", value: "2"),
+                                   new SelectListItem(text: "март", value: "3"),
+                                   new SelectListItem(text: "апрель", value: "4"),
+                                   new SelectListItem(text: "май", value: "5"),
+                                   new SelectListItem(text: "июнь", value: "6"),
+                                   new SelectListItem(text: "июль", value: "7"),
+                                   new SelectListItem(text: "август", value: "8"),
+                                   new SelectListItem(text: "сентябрь", value: "9"),
+                                   new SelectListItem(text: "октябрь", value: "10"),
+                                   new SelectListItem(text: "ноябрь", value: "11"),
+                                   new SelectListItem(text: "декабрь", value: "12")
+                               })
+                                    @Html.DropDownListFor(x => x.DateOfBirth.Year, new List<SelectListItem>
+                               {
+                                   new SelectListItem(text: "2022", value: "2022"),
+                                   new SelectListItem("2021", "2021"),
+                                   new SelectListItem(text: "2020", value: "2020"),
+                                   new SelectListItem(text: "2019", value: "2019"),
+                                   new SelectListItem(text: "2018", value: "2018"),
+                                   new SelectListItem(text: "2017", value: "2017"),
+                                   new SelectListItem(text: "2016", value: "2016"),
+                                   new SelectListItem(text: "2015", value: "2015"),
+                                   new SelectListItem(text: "2014", value: "2014"),
+                                   new SelectListItem(text: "2013", value: "2013"),
+                                   new SelectListItem(text: "2012", value: "2012"),
+                                   new SelectListItem(text: "2011", value: "2011"),
+                                   new SelectListItem(text: "2010", value: "2010"),
+                                   new SelectListItem(text: "2009", value: "2009"),
+                                   new SelectListItem(text: "2008", value: "2008"),
+                                   new SelectListItem(text: "2007", value: "2007"),
+                                   new SelectListItem(text: "2006", value: "2006"),
+                                   new SelectListItem(text: "2005", value: "2005"),
+                                   new SelectListItem(text: "2004", value: "2004"),
+                                   new SelectListItem(text: "2003", value: "2003"),
+                                   new SelectListItem(text: "2002", value: "2002"),
+                                   new SelectListItem(text: "2001", value: "2001"),
+                                   new SelectListItem(text: "2000", value: "2000"),
+                                   new SelectListItem(text: "1999", value: "1999"),
+                                   new SelectListItem(text: "1998", value: "1998"),
+                                   new SelectListItem(text: "1997", value: "1997"),
+                                   new SelectListItem(text: "1996", value: "1996"),
+                                   new SelectListItem(text: "1995", value: "1995"),
+                                   new SelectListItem(text: "1994", value: "1994"),
+                                   new SelectListItem(text: "1993", value: "1993"),
+                                   new SelectListItem(text: "1992", value: "1992"),
+                                   new SelectListItem(text: "1991", value: "1991"),
+                                   new SelectListItem(text: "1990", value: "1990"),
+                                   new SelectListItem(text: "1989", value: "1989"),
+                                   new SelectListItem(text: "1988", value: "1988"),
+                                   new SelectListItem(text: "1987", value: "1987"),
+                                   new SelectListItem(text: "1986", value: "1986"),
+                                   new SelectListItem(text: "1985", value: "1985"),
+                                   new SelectListItem(text: "1984", value: "1984"),
+                                   new SelectListItem(text: "1983", value: "1983"),
+                                   new SelectListItem(text: "1982", value: "1982"),
+                                   new SelectListItem(text: "1981", value: "1981"),
+                                   new SelectListItem(text: "1980", value: "1980"),
+                                   new SelectListItem(text: "1979", value: "1979"),
+                                   new SelectListItem(text: "1978", value: "1978"),
+                                   new SelectListItem(text: "1977", value: "1977"),
+                                   new SelectListItem(text: "1976", value: "1976"),
+                                   new SelectListItem(text: "1975", value: "1975"),
+                                   new SelectListItem(text: "1974", value: "1974"),
+                                   new SelectListItem(text: "1973", value: "1973"),
+                                   new SelectListItem(text: "1972", value: "1972"),
+                                   new SelectListItem(text: "1971", value: "1971"),
+                                   new SelectListItem(text: "1970", value: "1970"),
+                                   new SelectListItem(text: "1969", value: "1969"),
+                                   new SelectListItem(text: "1968", value: "1968"),
+                                   new SelectListItem(text: "1967", value: "1967"),
+                                   new SelectListItem(text: "1966", value: "1966"),
+                                   new SelectListItem(text: "1965", value: "1965"),
+                                   new SelectListItem(text: "1964", value: "1964"),
+                                   new SelectListItem(text: "1963", value: "1963"),
+                                   new SelectListItem(text: "1962", value: "1962"),
+                                   new SelectListItem(text: "1961", value: "1961"),
+                                   new SelectListItem(text: "1960", value: "1960"),
+                                   new SelectListItem(text: "1959", value: "1959"),
+                                   new SelectListItem(text: "1958", value: "1958"),
+                                   new SelectListItem(text: "1957", value: "1957"),
+                                   new SelectListItem(text: "1956", value: "1956"),
+                                   new SelectListItem(text: "1955", value: "1955"),
+                                   new SelectListItem(text: "1954", value: "1954"),
+                                   new SelectListItem(text: "1953", value: "1953"),
+                                   new SelectListItem(text: "1952", value: "1952"),
+                                   new SelectListItem(text: "1951", value: "1951"),
+                                   new SelectListItem(text: "1950", value: "1950"),
+                                   new SelectListItem(text: "1949", value: "1949"),
+                                   new SelectListItem(text: "1948", value: "1948"),
+                                   new SelectListItem(text: "1947", value: "1947"),
+                                   new SelectListItem(text: "1946", value: "1946"),
+                                   new SelectListItem(text: "1945", value: "1945"),
+                                   new SelectListItem(text: "1944", value: "1944"),
+                                   new SelectListItem(text: "1943", value: "1943"),
+                                   new SelectListItem(text: "1942", value: "1942"),
+                                   new SelectListItem(text: "1941", value: "1941"),
+                                   new SelectListItem(text: "1940", value: "1940"),
+                                   new SelectListItem(text: "1939", value: "1939"),
+                                   new SelectListItem(text: "1938", value: "1938"),
+                                   new SelectListItem(text: "1937", value: "1937"),
+                                   new SelectListItem(text: "1936", value: "1936"),
+                                   new SelectListItem(text: "1935", value: "1935"),
+                                   new SelectListItem(text: "1934", value: "1934"),
+                                   new SelectListItem(text: "1933", value: "1933"),
+                                   new SelectListItem(text: "1932", value: "1932"),
+                                   new SelectListItem(text: "1931", value: "1931"),
+                                   new SelectListItem(text: "1930", value: "1930"),
+                                   new SelectListItem(text: "1929", value: "1929"),
+                                   new SelectListItem(text: "1928", value: "1928"),
+                                   new SelectListItem(text: "1927", value: "1927"),
+                                   new SelectListItem(text: "1926", value: "1926"),
+                                   new SelectListItem(text: "1925", value: "1925"),
+                                   new SelectListItem(text: "1924", value: "1924"),
+                                   new SelectListItem(text: "1923", value: "1923"),
+                                   new SelectListItem(text: "1922", value: "1922"),
+                               })
+                                    <span class="error" id="birthday-error"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <h5><span>Фактический адрес </span></h5>
+                        <div class="cols">
+                            <div class="col50">
+                                <p>
+                                    <label>Место проживание</label>
+                                    @Html.TextBoxFor(x => x.Address)
+                                    <span class="error"></span>
+                                </p>
+                                <p>
+                                    <label>Телефон</label>
+                                    @Html.TextBoxFor(x => x.PhoneNumber)
+                                    <br>
+                                    <span id="phone_status" class="error"></span>
+                                </p>
+                                <div class="col50">
+                                    <p>
+                                        <label>Электронная почта *</label>
+                                        @Html.TextBoxFor(x => x.Gmail)
+                                        <span class="error" rel="email-input"></span>
+                                    </p>
+
+                                    <div class="agree-block">
+
+                                        <p><label>&nbsp;</label><input type="submit" id="register-submit" name="register-submit" value="Регистрация"></p>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                <p>
+
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+            }
+            </div>
+        </div>
+        <script>
+            var multiregional_mode = 0;
+        </script>
+        <div class="popup typepoliswin">
+            <div class="separator30"></div><span class="close"></span>
+            <div class="polis_image">
+                <h4>Полис нового образца</h4>
+                <br>
+                <img class="image-typepoliswin" src="../design/common_new/img/polis_new.jpg" alt="">
+                <br><br>
+                <h4>Полис старого образца</h4>
+                <br>
+                <img class="image-typepoliswin" src="../design/common_new/img/polis_old.jpg" alt="">
+                <br><br>
+                <h4>Временное свидетельство</h4>
+                <br>
+                <img class="image-typepoliswin" src="../design/common_new/img/polis_temp.jpg" alt="">
+            </div>
+        </div>
+        <script type="text/javascript" src="~/js/jquery.maskedinput-1.3.1.min.js"></script>
+        <script type="text/javascript" src="~/js/select2.full.js"></script>
+        <script type="text/javascript" src="~/js/register.js" ?v="2"></script>
+        <script type="text/javascript" src="~/js/address.js" ?v="2"></script>
+        <script src='../recaptcha/api.js'></script>
+
+
+        <div class="popup infoWindow">
+            <span class="close"></span>
+            <h2></h2>
+            <p class="contextAlert"></p>
+            <div style="float:right; margin-top: 20px;"><a href="#" class="button grey" onclick="jQuery('.popup.infoWindow').dialog( 'close' ); return false;">Закрыть</a></div>
+        </div>
+        <div class="push"></div>
+
+        <div class="popup enterBox" id="enterBoxModal">
+            <span class="close"></span>
+
+            <form class="login-form  email-form" method="post">
+                <p>
+                    <input type="text" class="username-input" placeholder="Логин или Электронная почта" name="username" value="">
+                </p>
+                <p class="password-field">
+                    <input type="password" class="password-input" placeholder="Пароль" name="password">
+                </p>
+                <p><input type="checkbox" id="forgot" name="remember"><label for="forgot">Запомнить меня</label><a href="#" class="forgot_pass_link">Забыли пароль?</a></p>
+
+                <p><input type="submit" value="Вход" name="login-submit"></p>
+                <p><a href="/esia/auth">Войти через портал Госуслуг РФ (ЕСИА)</a> <span class="info" title="Авторизация через портал Госуслуг РФ открывает доступ ко всем услугам Медицинского портала, в том числе к Медицинской карте."></span></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="clearFix"></div>
+    <div class="footer">
+        <div class="pants">
+            <div class="wrapper">
+
+                <ul>
+                    <li><a href="../about.html">О портале</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- индикация загрузки -->
+    <div style="display:none;" id="load_indicator">
+        <div style="width:100%; height:100%; opacity:0.5; background-color:gray; border: 1px solid black; position:fixed; left:0%; top:0%; z-index:9998;">
+            &nbsp;
+        </div>
+        <div style="margin: -50px 0 0 -50px; position:fixed; left:50%; top:50%; z-index:9999;">
+            <div class="windows8">
+                <div class="wBall" id="wBall_1">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_2">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_3">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_4">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_5">
+                    <div class="wInnerBall"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

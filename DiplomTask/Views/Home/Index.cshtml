@@ -1,0 +1,383 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <!--	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">-->
+    <title>Региональный портал медицинских услуг</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/css/videochat.css" rel="stylesheet" type="text/css">
+    <!--<link href="/design/common_new/css/resolution-styles.css" rel="stylesheet" type="text/css">-->
+    <link href='~/css/fonts.css' rel='stylesheet' type='text/css'>
+    <link href="~/css/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="~/css/slick/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="~/css/slick/slick-add.css" rel="stylesheet" type="text/css">
+
+    <link rel="shortcut icon" href="~/img/favicons/fav.png" type="image/x-icon">
+
+
+    <script src="~/js/locale/ru.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.inputmask.min.js"></script>
+    <script>REGION = 'omsk_new';</script>
+    <script src="~/js/main.js"></script>
+</head>
+
+<body class="noLogin">
+
+
+    <!-- Yandex.Metrika counter -->
+    <script>
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter84166918 = new Ya.Metrika2({
+                        id: 84166918,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="watch/84166918?ut=noindex" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <div class="bodyWrapper">
+        <div class="popup yesno">
+            <span class="close"></span>
+            <div class="alert"></div>
+        </div>
+
+
+
+
+
+        <div class="popup redirectEsiaCovid" id="redirectEsiaCovid">
+            <span class="close"></span>
+            <p>Запись на вакцинацию против COVID-19 осуществляется через портал государственных услуг.</p>
+            <p>Перейти к записи?</p>
+            <br>
+            <div class="buttonsRedirectEsiaCovidPopup">
+                <span><a target="_blank" href="https://www.gosuslugi.ru/landing/vaccination" class="button">Да</a></span>
+                <span><a target="_blank" class="button closeRedirectEsiaCovidPopup">Нет</a></span>
+            </div>
+        </div>
+
+        <div class="cap">
+            <div class="wrapper">
+                <div class="burger"><i class="burger-menu"></i></div>
+                <div class="logo">
+                    <h1><a asp-action="Index"><img src="~/img/logo.png" alt="Региональный портал медицинских услуг"></a></h1>
+                </div>
+                <div class="name">
+                    <h1><a asp-action="Index">Региональный портал медицинских услуг</a></h1>
+                </div>
+                <div class="region">
+                    <ul class="closed">
+                        <!-- <li><a href="https://doctor30.ru">Анижанская область</a></li> -->
+                        <li class="selected"><a href="https://www.google.ru/maps/place/3-Oilaviy+poliklinika,+%D0%A1%D0%B5%D0%BC%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F+%D0%BF%D0%BE%D0%BB%D0%B8%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B0+%E2%84%963/40.3664265,71.7784742,17z/data=!4m5!3m4!1s0x38bb84bbb1b510f3:0x89945aca0d690a26!8m2!3d40.3669506!4d71.7776288">Ферганская область</a></li>
+                        <!-- <li><a href="https://k-vrachu.volmed.org.ru/">Наманганская область</a></li> -->
+                        <!-- <li><a href="https://пенза-доктор.рф">Бухаринская область</a></li> -->
+                        <!-- <li><a href="https://k-vrachu.ru">Харезмская край</a></li> -->
+                        <!-- <li><a href="https://k-vrachu.pskov.ru/">Самаркандская область</a></li> -->
+                        <!-- <li><a href="http://doctor.bashkortostan.ru">Республика Каракалпакистан</a></li> -->
+
+                    </ul>
+                </div>
+                <!-- <div class="person">
+                <p><a href="#" class="enter "><span></span>Вход</a>
+                    <a href="user/register.html" class="register"><span></span>Регистрация</a>
+                                                                </p>
+
+                <div class="demoBox tooltips">
+                    <div>
+                        <p>В демо-режиме можно ознакомиться со всеми возможностями портала без регистрации. Изменения сохраняться не будут.</p>
+                        <p>&nbsp;</p>
+                        <p><a href="index.htm" class="button grey">Включить демо-режим</a></p>
+                    </div>
+                </div>
+                                </div> -->
+            </div>
+        </div>
+
+        <link href="~/css/slick/slick.css" rel="stylesheet" type="text/css">
+        <link href="~/css/slick/slick-theme.css" rel="stylesheet" type="text/css">
+        <link href="~/css/slick/slick-add.css" rel="stylesheet" type="text/css">
+        <div class="top-slideshow">
+            <div class="wrapper">
+                <div class="top-slider">
+                    <div class="slider-img">
+                        <img src="~/img/slides/main-tizer.gif">
+                    </div>
+                    <div class="slider-descr">
+                        <h2>Запись на приём к врачу</h2>
+                        <p>
+                            Теперь вы можете не только записаться на прием в поликлинику, но и получить онлайн консультацию своего врача прямо из дома. Можно связаться с врачом по аудио или видеосвязи.
+                            <a href="~/register.cshtml">Зарегистрируйтесь</a> на сайте или
+                            <a href="#" onclick="$('.enter').click();return false;">авторизуйтесь</a> для возможности записаться.
+                        </p>
+                        <a class="data slider-btn" asp-action="register">Записаться</a>
+                    </div>
+                </div>
+                <div class="top-slider">
+                    <div class="slider-img">
+                        <img src="~/img/slides/vaccination_slide.png">
+                    </div>
+                    <div class="slider-descr">
+                        <h2>Запись на вакцинацию от COVID-19</h2>
+                        <p>
+                            Защищайтесь от COVID-19 эффективно — сделайте себе и семье прививку.      <a class="data slider-btn" asp-action="register1">Записаться</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="top-slider">
+                    <div class="slider-img">
+                        <img src="~/img/slides/slide5.png">
+                    </div>
+                    <div class="slider-descr">
+                        <h2>Связь с врачом</h2>
+                        <p>
+                            Обратная связь с врачом
+                        </p>
+                        <a href="~/profiles.html" class="slider-btn">Открыть</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="path mainpath">
+            <div class="wrapper">
+                <span>Медицинские услуги региона</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="wrapper">
+                <div class="tizers">
+                    <div style="height: auto;" class="tizer n7">
+                        <a asp-action="register">
+                            <div class="data " data-link="/service/record">
+                                <span class="kvrachu">
+                                    <span class="lock" title="Требуется авторизация"></span>
+                                </span>
+                                <h2>Запись на приём к врачу</h2>
+                                <p>Запись на плановый прием к врачу по месту жительства.  </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="height: auto;" class="tizer n7">
+                        <a asp-action="register">
+                            <div class="data " data-link="/service/record/vaccination">
+                                <span class="record_vaccination">
+                                    <span class="lock" title="Требуется авторизация"></span>
+                                </span>
+                                <h2>Запись на вакцинацию</h2>
+                                <p>Предварительная запись на вакцинацию</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="height: auto;" class="tizer n7">
+                        <a href="~/profiles.html">
+                            <div class="data " data-link="/service/schedule">
+                                <span class="rasp">
+                                </span>
+                                <h2>Обратная связь с врачом</h2>
+                                <p>Информация о наличии врачей-специалистов в медицинских организациях, режиме их работы и расписании приемов</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tizers-mini">
+                    <div style="height: auto;" class="tizer-mini n7">
+                        <a href="">
+                            <div class="data">
+                                <span class="kvrachu">
+                                    <span class="lock" title="Требуется авторизация"></span>
+                                </span>
+                                <h2>Запись на приём к врачу</h2>
+                                <p>Запись на плановый прием к врачу по месту жительства. Требуется регистрация.<br>Государственная услуга.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="height: auto;" class="tizer-mini n7">
+                        <a href="">
+                            <div class="data">
+                                <span class="record_vaccination">
+                                    <span class="lock" title="Требуется авторизация"></span>
+                                </span>
+                                <h2>Запись на вакцинацию</h2>
+                                <p>Предварительная запись на вакцинацию</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div style="height: auto;" class="tizer-mini n7">
+                        <div class="data" onclick="location.href='/service/schedule'">
+                            <span class="rasp">
+                            </span>
+                            <h2>Расписание работы врачей</h2>
+                            <p>Информация о наличии врачей-специалистов в медицинских организациях, режиме их работы и расписании приемов</p>
+                        </div>
+                    </div>
+
+                    <div style="height: auto;" class="tizer-mini n7">
+                        <div class="data" onclick="location.href='/service/emk'">
+                            <span class="emk">
+                                <span class="lock" title="Требуется авторизация на портале my.gov.uz"></span>
+                            </span>
+                            <h2>Медицинская карта</h2>
+                            <p>Просмотр Вашей Электронной Медицинской Карты</p>
+                        </div>
+                    </div>
+
+                    <div style="height: auto;" class="tizer-mini n7">
+                        <div class="data">
+                            <span class="diary">
+                                <span class="lock" title="Требуется авторизация"></span>
+                            </span>
+                            <h2>Дневник здоровья</h2>
+                            <p>Ввод показателей давления и пульса. Просмотр истории измерений</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="description">
+                    <p class="alert">
+                        Возможность записи на прием к врачу на 15-й день открывается в 21:00 текущего дня.
+                    </p>
+                </div>
+                <div class="description">
+                    <p class="alert">
+                        При возникновении неотложных состояний, требующих срочного оказания медицинской помощи, обратитесь в Скорую медицинскую помощь по номеру 103
+                    </p>
+                </div>
+                <div class="banner-place" style="margin-top: -8px; margin-bottom: 31px; display: flex;">
+
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <script type="text/javascript" src="~/js/slick.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function changeSlides() {
+                    if ($(window).width() <= 768) {
+                        return 3
+                    } else if (7 > 5) {
+                        return 5
+                    } else {
+                        return 7
+                    }
+                }
+                $('.tizers').slick({
+                    infinite: true,
+                    slidesToShow: changeSlides(),
+                    slidesToScroll: 1
+                });
+
+                $('.top-slideshow .wrapper').slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    autoplay: true,
+                    autoplaySpeed: 7000,
+                    useCSS: false,
+                    easing: 'easeInOutExpo',
+                    speed: 1000
+                });
+
+                $('.newsblock').slick({
+                    infinite: true,
+                    slidesToShow: $(window).width() <= 640 ? 1 : 2,
+                    slidesToScroll: 1
+                });
+            });
+        </script>
+
+
+        <div class="popup infoWindow">
+            <span class="close"></span>
+            <h2></h2>
+            <p class="contextAlert"></p>
+            <div style="float:right; margin-top: 20px;"><a href="#" class="button grey" onclick="jQuery('.popup.infoWindow').dialog( 'close' ); return false;">Закрыть</a></div>
+        </div>
+        <div class="push"></div>
+
+        <div class="popup enterBox" id="enterBoxModal">
+            <span class="close"></span>
+
+            <form class="login-form  email-form" method="post">
+                <p>
+                    <input type="text" class="username-input" placeholder="Логин или Электронная почта" name="username" value="">
+                </p>
+                <p class="password-field">
+                    <input type="password" class="password-input" placeholder="Пароль" name="password">
+                </p>
+                <p>
+                    <input type="checkbox" id="forgot" name="remember"><label for="forgot">Запомнить меня</label><a href="#" class="forgot_pass_link">Забыли пароль?</a>
+                </p>
+                <p><input type="submit" value="Вход" name="login-submit"></p>
+                <p><a href="https://my.gov.uz">Войти через портал my.dov.uz</a> <span class="info" title="Авторизация через портал my.gov.uz открывает доступ ко всем услугам Медицинского портала, в том числе к Медицинской карте."></span></p>
+            </form>
+        </div>
+    </div>
+    <div class="clearFix"></div>
+    <div class="footer">
+        <div class="pants">
+            <div class="wrapper">
+
+                <ul>
+                    <li><a href="~/about.html">О портале</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- индикация загрузки -->
+    <div style="display:none;" id="load_indicator">
+        <div style="width:100%; height:100%; opacity:0.5; background-color:gray; border: 1px solid black; position:fixed; left:0%; top:0%; z-index:9998;">
+            &nbsp;
+        </div>
+        <div style="margin: -50px 0 0 -50px; position:fixed; left:50%; top:50%; z-index:9999;">
+            <div class="windows8">
+                <div class="wBall" id="wBall_1">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_2">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_3">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_4">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_5">
+                    <div class="wInnerBall"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

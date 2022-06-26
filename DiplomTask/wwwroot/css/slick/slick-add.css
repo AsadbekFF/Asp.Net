@@ -1,0 +1,150 @@
+
+.top-slideshow{
+	background: #26a69a none repeat scroll 0 0;
+	border-top: 1px solid #80cbc4;
+}
+
+.top-slideshow .wrapper .slick-dots li button{
+	background: url(../../img/slides/slider-dot.png) no-repeat;
+	opacity: 0.2;
+}
+
+.top-slideshow .wrapper .slick-next, .top-slideshow .wrapper .slick-prev{
+	height: 90px;
+	width: 30px;
+	top: 115px;
+	opacity: 0;
+}
+
+.top-slideshow:hover .wrapper .slick-next, .top-slideshow:hover .wrapper .slick-prev{
+	opacity: 0.5;
+}
+
+.top-slideshow .wrapper .slick-next:hover, .top-slideshow .wrapper .slick-prev:hover{
+	opacity: 1;
+}
+
+.top-slideshow .wrapper .slick-prev{
+	background: url(../../img/slides/top-slider-arrows-left.png) no-repeat center center;
+	left: 10px;
+}
+.top-slideshow .wrapper .slick-next{
+	background: url(../../img/slides/top-slider-arrows-right.png) no-repeat center center;
+	right: 10px;
+}
+
+.top-slideshow .wrapper .slick-dots li button:hover{
+	opacity: 0.5;
+}
+
+.top-slideshow .wrapper .slick-dots li.slick-active button{
+	opacity: 1;
+}
+
+.top-slideshow .wrapper .slick-dots{
+	bottom: 10px;
+	margin: 0 -50px 0 -50px;
+}
+
+.top-slideshow .wrapper .slick-track{
+	height: 350px;
+}
+
+.top-slideshow .wrapper{
+	height: 350px;
+	padding: 0 50px 0 50px;
+}
+
+.top-slider{
+	position: relative;
+	height: 100%;
+}
+
+.top-slider > div {
+	display: inline-block;
+	margin: -50% 0;
+	position: relative;
+	top: calc(50% - 7px);
+	vertical-align: middle;
+	color: #fff;
+	font-size: 15px;
+}
+
+.top-slider .slider-img{
+	width: 475px;
+	user-select: none;
+}
+
+.top-slider .slider-img img{
+	margin: auto;
+	display: block;
+}
+
+.top-slider .slider-descr {
+	margin-left: 75px;
+	width: 350px;
+	user-select: none;
+}
+
+.top-slider .slider-descr h2{
+	font-size: 36px;
+	color: #fff;
+	margin: 0 0 20px;
+}
+
+.top-slider .slider-descr p {
+	max-width: 400px;
+	line-height: 16px;
+}
+
+.top-slider .slider-descr a{
+	color: #fcee21;
+	text-decoration: none;
+}
+
+.top-slider .slider-descr a:hover{
+	color: #fef67b;
+}
+
+.top-slider .slider-descr a.slider-btn {
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color: #fff;
+	display: inline-block;
+	margin: 30px 0 10px;
+	padding: 11px 45px 9px;
+	cursor: pointer;
+}
+.top-slider .slider-descr a.slider-btn:hover{background: #fff;color: #26a69a;}
+.top-slider .slider-descr a.slider-btn:active{opacity: 0.5;}
+
+.top-slider .slider-descr a.slider-btn-default{
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color: #26a69a;
+	display: inline-block;
+	margin: 30px 10px 10px 0;
+	padding: 11px 45px 9px;
+	background: #fff;
+}
+.top-slider .slider-descr a.slider-btn-default:hover{opacity:0.8;}
+.top-slider .slider-descr a.slider-btn-default:active{opacity:0.5;}
+/*slick custom styles*/
+.slick-prev, .slick-next{
+	background:url(../../img/slides/services-arrows-silver.png) no-repeat;
+	height: 28px;
+	width: 16px;
+	opacity: 0.5;
+}
+
+.content .slick-prev:hover, .content .slick-next:hover{
+	opacity: 0.5;
+}
+
+.slick-prev{
+	background-position: left top;
+}
+
+.slick-next{
+	background-position: right top;
+}

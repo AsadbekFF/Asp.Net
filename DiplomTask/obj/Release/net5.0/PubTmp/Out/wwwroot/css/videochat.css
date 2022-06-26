@@ -1,0 +1,1222 @@
+﻿.content.video-chat {
+    height: 300px !important;
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.setting-communication-window .success {
+    color: #4bb5ab
+}
+
+.miss .icon-videochat-timetable, .busy .icon-videochat-timetable  {
+    opacity: 0.3;
+}
+
+.tooltip-videochat {
+    display: none;
+    left: 20%;
+    width: 180px;
+    height: 27px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 3px;
+    opacity: 1;
+    color: #666666;
+    position: absolute;
+    padding: 8px;
+    z-index: 9999;
+}
+
+.endOfReception {
+    float: right;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF !important;
+    background-color: #26A69A;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-right: 8px;
+    border: none !important;
+    cursor: pointer;
+}
+
+.decline-call-window {
+    display: none;
+    top: 35%;
+    width: 312px;
+    height: 314px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.repeat-visit:before  {
+    background: url(../img/repeat_icon.png) no-repeat;
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    opacity: 1;
+    position: relative;
+    top: 4px;
+    margin-left: 10px;
+}
+
+.icon-videochat-timetable {
+    display: inline-block;
+    background: url(../img/earth-black.png) 0% 0% no-repeat padding-box;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.ttg-cell {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ttg-cell-time {
+    padding-top: 2px;
+}
+
+.decline-call-window a {
+    margin-top: 21px;
+}
+
+.decline-call-window h1 {
+    margin-top: 24px;
+}
+
+.decline-call {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+    margin-left: 18px;
+    margin-right: 18px;
+    border-radius: 50px;
+    background-color: lightgray;
+}
+.img-decline-call {
+    background: url(../img/videochat/call_end-x2.png) no-repeat center;
+    width: 96px;
+    height: 96px;
+    display: block;
+    transform: scale(0.75);
+}
+
+.RegisteredVideoChat {
+    display: block;
+    top: 30%;
+    left: 35%;
+    width: 300px;
+    height: 260px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+    text-align: center;
+}
+
+.choose-way-communication {
+    display: none;
+    top: 35%;
+    left: 35%;
+    width: 340px;
+    height: 190px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+}
+
+.select-time-videochat {
+    display: none;
+    top: 30%;
+    left: 35%;
+    width: 312px;
+    height: 300px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+}
+
+.videochatFree {
+    background: #64ffda;
+    color: #000;
+    cursor: pointer;
+}
+
+.message-videochat p {
+   text-align: left;
+}
+
+.message-videochat {
+    font-size:14px;
+    color:#00000099;
+}
+
+.RegisteredVideoChat .message-videochat {
+    margin-bottom: 17px;
+}
+
+.RegisteredVideoChat h1 {
+    margin: 0 0 19px;
+}
+
+.RegisteredVideoChat .img-success{
+    background: url(../img/alert-success.png) no-repeat left top;
+    width: 39px;
+    height: 39px;
+    margin: 10px 133px 29px 133px !important;
+}
+
+.choose-way-communication .option {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    width: 340px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.choose-way-communication .option:hover {
+    border: 1px solid #0288D1;
+}
+
+.choose-way-communication h1 {
+    margin-bottom: 31px !important;
+}
+
+.choose-way-communication .option span.text {
+    font-size: 18px;
+    letter-spacing: 0px;
+    color: #01579B;
+    opacity: 1;
+    margin-top: 17px;
+    cursor:pointer;
+    display: block;
+}
+
+.choose-way-communication .option span {
+    height: 24px !important;
+    width: 24px !important;
+    display: inline-block;
+    margin: 13px 11px 13px 11px
+}
+
+.img-audiocall {
+    background: url(../img/videochat/call-blue.png) no-repeat padding-box;
+}
+
+.img-videocall {
+    background: url(../img/videochat/camera-blue.png) no-repeat padding-box;
+}
+
+.contact-list {
+    width: 15%;
+    background-color: lightgrey;
+    display: block;
+    border: 0;
+    padding: 15px 10px;
+    border-radius: 10px;
+    height: 400px;
+    position: absolute;
+    opacity: 0.6;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: 999;
+}
+
+.contact-list table {
+    width: 100%;
+}
+
+.contact-list table tr {
+    height: 20px;
+}
+
+.video-chat-main-window {
+    width: 100%;
+    /*background-color: #383c40;*/
+    display: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 682px;
+    z-index: 1;
+    position: relative;
+    background: rgb(38, 50, 56);
+    background: radial-gradient(circle, rgb(128, 128, 128) 0%, rgb(38, 50, 56) 39%);
+}
+
+.serviceContentVideoChat {
+    min-height: 75px !important;
+}
+
+.remind-block {
+    display: flex;
+    justify-content: flex-end;
+    height: 15px
+}
+
+.serviceContentVideoChat .status-bar .status {
+    position: absolute !important;
+    right: 0px !important;
+    bottom: 12px !important;
+}
+
+.button-timer, .endOfReception {
+    margin-top: 12px !important;
+    font-size: 14px;
+    line-height: 17px;
+    color: #546E7A !important;
+    background-color: #ECEFF1;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: none !important;
+}
+
+.button-timer {
+    position: relative;
+    z-index: 2;
+}
+@keyframes stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 0;
+        left: 100%;
+    }
+}
+
+.button-timer:before {
+    content: "";
+    background: white;
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    top: -3px;
+    left: -75px;
+    transform: skewX(-35deg);
+    animation: stripes 3s infinite linear;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.endOfReception {
+    background-color: #26A69A !important;
+    color: white !important;
+}
+
+.serviceContentVideoChat .status-bar .status-buttons .reminder-block .remind {
+    margin-right: 12px !important;
+}
+
+.remind {
+    float: right;
+}
+
+.serviceContentVideoChat .place {
+   height: 75px !important;
+}
+
+.text-videochatIsOn {
+    color: #F37F21;
+}
+
+.endOfReception {
+    will-change: transform;
+    background-color: #26A69A !important;
+    color: white !important;
+    animation: radial-pulse 1s infinite;
+    float: right;
+    cursor: pointer;
+
+}
+
+@keyframes radial-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+}
+
+.videochat-call-start-timer {
+    float: right;
+}
+
+.videochat-message-panel-button-container {
+    float: right;
+    text-align: center;
+}
+
+.videochat-message-panel-button {
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF !important;
+    background-color: #26A69A;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 12px;
+    margin-right: 8px;
+    border: none !important;
+    cursor: pointer;
+    will-change: transform;
+    animation: radial-pulse 1s infinite;
+}
+
+.chat-window {
+    display: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    line-height: 18px;
+
+    /*position: relative;*/
+    z-index: 1;
+}
+
+.chat-panel {
+    position: fixed;
+    border: 1px solid #000;
+    background-color: #fff;
+    bottom: 10px;
+    right: 10px;
+    width: 426px;
+    height: 446px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px 25px #0000004D;
+    z-index: 99;
+}
+
+.chat-panel.chat-panel-in-call {
+    border-radius: 0;
+    box-shadow: none;
+    position: static;
+    height: 682px;
+}
+
+/* header ----------------------------------------------------------- */
+
+.chat-panel-header {
+    width: 426px;
+    background-color: #333333;
+    border: none;
+    border-radius: 3px 3px 0 0;
+}
+
+.chat-panel-in-call .chat-panel-header {
+    display: none;
+}
+
+.chat-panel-header p {
+    color: #FFFFFF;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 36px;
+    position: relative;
+}
+
+.chat-panel-header p:before {
+    background: transparent url(../img/videochat/user.svg);
+    position: absolute;
+    left: 10px;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    content: "";
+}
+
+/* Область сообщений */
+
+.messages-view {
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 16px;
+    height: 100%;
+}
+.message-view {
+    padding: 8px 10px 10px;
+    background-color: #E3F2FD;
+    border-radius: 5px 5px 5px 0;
+    margin: 5px;
+    max-width: 266px;
+    width: auto;
+}
+
+.message-view.message-right {
+    align-self: flex-end;
+    background-color: #F1F1F1;
+    border-radius: 5px 5px 0 5px;
+}
+
+.message-view__content {
+    overflow-wrap: break-word;
+    white-space: normal;
+    font-size: 13px;
+    line-height: 16px;
+    margin: 0;
+}
+
+
+.day-border {
+    align-self: center;
+    width: 92px;
+    height: 16px;
+    font-size: 11px;
+    line-height: 13px;
+    border: 1px solid #ECECEC;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: 0 3px 6px #00000029;
+    position: relative;
+    margin: 2px;
+}
+
+.day-border::before {
+    content: "";
+    position: absolute;
+    border-top: 1px solid #DDDDDD;
+    width: 160px;
+    top: 7px;
+    left: -161px;
+}
+
+
+.day-border::after {
+    content: "";
+    position: absolute;
+    border-top: 1px solid #DDDDDD;
+    width: 160px;
+    top: 7px;
+    right: -161px;
+}
+
+.day-border p {
+    margin: 0;
+}
+
+/* Область написания сообщения */
+
+#chat-message-form {
+    position: relative;
+    z-index: 10;
+}
+#chat-message-form input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+.chat-message-container {
+    display: flex;
+    justify-content: space-between;
+    width: 426px;
+    height: 48px;
+    border-top: 1px solid #dddddd;
+}
+
+#chat-message-input {
+    resize: none;
+    width: 100%;
+    padding: 0;
+    padding-top: 3px;
+    border: none;
+    margin: 10px;
+    margin-top: 15px;
+    outline: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    box-shadow: none;
+}
+
+#chat-message-form .chat-message-container .chat-file-input-label {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    font-size: 0;
+    background-image: url(../img/videochat/attachFile.svg);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    padding: 15px;
+
+}
+
+.chat-message-submit-btn {
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+    background-image: url(../img/videochat/send.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-color: transparent;
+    font-size: 0;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.chat-message-submit-btn:hover {
+    opacity: 1;
+}
+
+/* close-btn-------------------------------------------------------- */
+
+.chat-window #chat-window-close-btn {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    opacity: 0.3;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.chat-window .chat-panel-in-call #chat-window-close-btn {
+    display: none;
+}
+
+.chat-window #chat-window-close-btn:hover {
+    opacity: 1;
+}
+
+.chat-window #chat-window-close-btn:before,
+.chat-window #chat-window-close-btn:after {
+    position: absolute;
+    left: 9px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #fff;
+    top: 0;
+}
+.chat-window #chat-window-close-btn:before {
+    transform: rotate(45deg);
+}
+.chat-window #chat-window-close-btn:after {
+    transform: rotate(-45deg);
+}
+
+/* Лоадер для окна сообщений */
+.chat-message-panel-mask {
+    display: none;
+    position: absolute;
+    width: 426px;
+    height: 446px;
+    background-color: #c1c1c1;
+    opacity: .5;
+    z-index: 10;
+}
+
+.chat-panel-in-call .chat-message-panel-mask {
+    height: 682px;
+}
+
+.chat-message-panel-loader,
+.chat-message-panel-loader:before,
+.chat-message-panel-loader:after {
+    border-radius: 50%;
+}
+.chat-message-panel-loader {
+    color: #ffffff;
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 55px auto;
+    position: absolute;
+    top: 140px;
+    left: 140px;
+    width: 10em;
+    height: 10em;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.chat-message-panel-loader:before,
+.chat-message-panel-loader:after {
+    position: absolute;
+    content: '';
+}
+.chat-message-panel-loader:before {
+    width: 5.2em;
+    height: 10.2em;
+    background: #c1c1c1;
+    border-radius: 10.2em 0 0 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    -webkit-transform-origin: 5.1em 5.1em;
+    transform-origin: 5.1em 5.1em;
+    -webkit-animation: load2 2s infinite ease 1.5s;
+    animation: load2 2s infinite ease 1.5s;
+}
+.chat-message-panel-loader:after {
+    width: 5.2em;
+    height: 10.2em;
+    background: #c1c1c1;
+    border-radius: 0 10.2em 10.2em 0;
+    top: -0.1em;
+    left: 4.9em;
+    -webkit-transform-origin: 0.1em 5.1em;
+    transform-origin: 0.1em 5.1em;
+    -webkit-animation: load2 2s infinite ease;
+    animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Лоадер для инпута сообщений */
+.chat-message-container-mask {
+    display: none;
+    position: absolute;
+    width: 426px;
+    height: 50px;
+    background-color: #c1c1c1;
+    opacity: .5;
+}
+
+.chat-message-container-loader {
+    margin: 15px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.chat-message-container-loader > div {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.chat-message-container-loader .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.chat-message-container-loader .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+      }
+}
+
+
+.video-chat-main-window video#remote-video {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+}
+
+.video-chat-main-window .no-video-view {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent linear-gradient(0deg, #263238CC 0%, #26323833 49%, #263238CC 100%) 0% 0% no-repeat padding-box;
+}
+
+.video-chat-main-window .no-video-view .no-video-inner-panel {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-chat-main-window div.vc-self-video-panel {
+    position: absolute;
+    width: 128px;
+    border-radius: 10px;
+    top: 32px;
+    left: 32px;
+    overflow: hidden;
+}
+
+
+.video-chat-main-window video#self-video {
+    width: 131px;
+}
+
+.vc-chat-panel {
+    width: 20%;
+    background-color: lightgrey;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.icon-mic {
+    background: url(../img/videochat/mic_off.png) no-repeat center;
+    height: 18px;
+    width: 18px;
+}
+
+.icon-camera {
+    background: url(../img/videochat/camera_off.png) no-repeat center;
+    height: 18px;
+    width: 18px;
+}
+
+.acceptVideoCall:hover, .acceptAudioCall:hover, .declineCall:hover {
+    transform: scale(1.2);
+}
+
+.video-chat-offer-window {
+    display: none;
+    width: 372px;
+    height: 340px;
+    position: fixed;
+    background: rgb(38, 50, 56);
+    background: transparent linear-gradient(0deg, #546E7A 0%, #78909C 49%, #546E7A 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    right: 0;
+    margin-right: 24px;
+    z-index: 999;
+    bottom: 50px;
+}
+
+.video-chat-offer-window .vc-component {
+    /*margin: 20px;*/
+    text-align: center;
+}
+
+.video-chat-offer-window .ow-header {
+    padding: 36px 20px 24px 20px;
+}
+
+.video-chat-offer-window .ow-content {
+    color: #fff;
+}
+
+.video-chat-offer-window .ow-content .contact-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.video-chat-offer-window .ow-content .contact-desc {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.video-chat-offer-window .ow-tools {
+    margin: 35px 0px 36px 0px;
+    width: 100%;
+    height: 64px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.vc-btn {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    margin-left: 18px;
+    margin-right: 18px;
+    border-radius: 35px;
+    background-color: hsla(0, 0%, 100%, 1);
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vc-btn.small {
+    width: 48px;
+    height: 48px;
+}
+
+.vc-btn.wide {
+    margin-left: 31px;
+    margin-right: 31px;
+}
+
+.vc-btn.green {
+    background-color: #4CAF50;
+}
+
+.vc-btn.red {
+    background-color: #F44336;
+}
+
+.vc-btn.transparent {
+    background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.vc-btn span {
+    display: inline-block;
+}
+
+.vc-btn span.videocall {
+    background: url(../img/videochat/camera_2x.png) no-repeat center;
+    width: 64px;
+    height: 64px;
+}
+
+.vc-btn span.audiocall {
+    background: url(../img/videochat/call.png) no-repeat center;
+    width: 64px;
+    height: 64px;
+}
+
+.vc-btn span.call-end {
+    background: url(../img/videochat/call_end.png) no-repeat center;
+    width: 64px;
+    height: 64px;
+}
+
+.vc-btn span.camera {
+    background: url(../img/videochat/camera_black.png) no-repeat center;
+    width: 48px;
+    height: 48px;
+}
+
+.vc-btn span.mic {
+    background: url(../img/videochat/mic_black.png) no-repeat center;
+    width: 48px;
+    height: 48px;
+}
+
+.vc-btn span.camera.off {
+    background: url(../img/videochat/camera_off.png) no-repeat center;
+    width: 48px;
+    height: 48px;
+}
+
+.vc-btn span.mic.off {
+    background: url(../img/videochat/mic_off.png) no-repeat center;
+    width: 48px;
+    height: 48px;
+}
+
+.vc-tools-panel {
+    text-align: center;
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.vc-header-panel {
+    text-align: center;
+    position: relative;
+    top: 32px;
+}
+
+.vc-header-panel .contact-name{
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.vc-header-panel .state{
+    font-size: 16px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.vc-header-panel .debug-tmk{
+    font-size: 14px;
+    margin: 10px 160px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.vc-header-panel .debug-tmk>a{
+    color: #fffefe;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.video-chat-template {
+    display: none;
+}
+
+.vc-default-doctor-avatar {
+    position: absolute;
+    height: 200px;
+    background: url(../img/videochat/doc-default-avatar-x2.png) no-repeat center;
+    display: block;
+    top: 50%;
+    width: 100%;
+    transform: translate(0%, -50%);
+}
+.call-view-notice {
+    height: 38px;
+    width: 100%;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-align: center;
+    opacity: 0.8;
+    position: absolute;
+    top: 50%;
+}
+
+.contact-list {
+    display: block;
+    position: absolute;
+    top: 200px;
+}
+
+#videoChat-call-is-over-window {
+    display: none;
+    top: 30%;
+    width: 372px;
+    height: 326px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+.img-call-is-over, .img-select-time-videochat {
+    background: url(../img/earth-big.png) no-repeat center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    opacity: 0.2;
+}
+
+.img-call-is-over {
+    margin: 18px 116px 32px 146px !important;
+}
+
+.select-time-videochat a  {
+    padding: 10px 30px 10px 30px !important;
+    margin-top: 25px;
+}
+
+.select-time-videochat {
+    text-align: center;
+}
+
+.img-select-time-videochat {
+    margin: 18px 116px 32px 126px !important;
+}
+
+.call-is-over {
+    text-align: center;
+}
+
+.call-is-over p {
+    font-size: 16px;
+}
+.call-is-over a {
+    margin-top: 26px;
+}
+.call-is-over h1{
+    margin: 0 0 5px !important;
+}
+.call-is-over p.time {
+    margin-bottom: 17px !important;
+}
+.close {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: url(../img/close.png) no-repeat left top #FFF;
+    right: 17px;
+    top: 15px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.setting-communication-window {
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 1100px;
+    height: 450px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 12px #00000033;
+    border-radius: 10px;
+    opacity: 1;
+    position: fixed;
+    padding: 30px;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+}
+
+.img-settings {
+    width: 180px;
+    height: 120px;
+    background-color: transparent;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.img-settings.bordered {
+    border: 4px dashed #cac7c7;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.big-text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.low-text {
+    font-size: 16px;
+    width: 284px;
+}
+
+.text-settings {
+    margin-left:24px;
+}
+.low-text {
+    margin-top: 15px;
+}
+
+.text-settings .button {
+    margin-top: 18px;
+}
+
+.setting-communication-column {
+    display: flex;
+    flex-direction: column
+}
+.setting-communication-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.setting-communication-column .item {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.vc-icon {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.vc-icon.check-sound {
+    opacity: 0.4;
+    background: url(../img/videochat/dynamic_black.png) no-repeat center center;
+}
+
+.vc-icon.check-mic {
+    opacity: 0.4;
+    background: url(../img/videochat/mic_black_big.png) no-repeat center center;
+}
+
+.analyzer-container {
+    width: 100%;
+    margin-top: 13px;
+}
+
+.analyzer-square {
+    width: calc(10% - 4px);
+    height: 14px;
+    display: inline-block;
+}
+
+.settings-device-selector {
+    width: 275px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#settings-self-video {
+    width: 180px;
+}
