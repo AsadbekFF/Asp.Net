@@ -1,0 +1,169 @@
+﻿@model Product
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>EasyLog</title>
+</head>
+<script src="~/script/comeIn.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+   google.charts.load('current', { 'packages': ['corechart'] });
+   google.charts.setOnLoadCallback(chart);
+
+   function chart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Name');
+      data.addColumn('number', 'Value');
+      data.addRows([
+          ['Пусто', @ViewBag.Types.PercentageOfEmptiness],
+          ['Фрукты', @ViewBag.Types.PercentageOfFruits],
+         ['Овощи', @ViewBag.Types.PercentageOfVegetables],
+         ['Другое', @ViewBag.Types.PercentageOfOthers]
+      ]);
+
+      var options = {
+         'title': 'Инфодиаграмма', 'width': 700, 'height': 700, 'legend': 'left', 'is3D': false,
+         'colors': ['#6e6e6e', '#9c2e03', '#048c28', '#f5d467'],
+         'backgroundColor': '#E1B16A',
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('root'));
+      chart.draw(data, options);
+   }
+</script>
+
+<body>
+    <header id="header">
+        <a href="#" class="mainLogo">EasyLog</a>
+    </header>
+    <div class="main-body">
+        <div class="table">
+            <div class="clients">
+                <div class="clients__item">
+                    Имя клиента
+                </div>
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="clients__item">
+                        @item.NameOfClient
+                    </div>
+                }
+            </div>
+            <div class="type">
+                <div class="type__item">
+                    Название продукта
+                </div>
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="type__item">
+                        @item.NameOfProduct
+                    </div>
+                }
+            </div>
+            <div class="number">
+                <div class="number__item">
+                    Масса
+                </div>
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="number__item">
+                        @item.Capacity
+                    </div>
+                }
+            </div>
+            <div class="date">
+                <div class="date__item">
+                    Дата прибытия
+                </div>
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="date__item">
+                        @item.DateOfArrival.ToString("dd/MM/yyyy")
+                    </div>
+                }
+            </div>
+            <div class="phoneNum">
+                <div class="phoneNum__item">
+                    Мобильный клиента
+                </div>
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="phoneNum__item">
+                        @item.PhoneNumber
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="root" class="diagram"></div>
+    </div>
+    <div class="db-main">
+        <div class="add-btn">
+            <a href="#popup1" class="change-btn__btn">Добавить</a>
+        </div>
+        <div class="dataBase">База данных</div>
+        <div class="change-btn">
+            <a href="#popup2" class="change-btn__btn">Изменить</a>
+        </div>
+        <div id="popup1" class="popup1">
+            <a href="#header" class="popup__area"></a>
+            <div class="popup1__body">
+                <div class="popup1__content">
+                    <a href="#header" class="popup1__close">X</a>
+                    <div class="popup1__title">Добавить клиента</div>
+                    <div class="input-container">
+                        <form asp-action="AddRecord" asp-controller="Home" method="post">
+                            <p>Введите имя клиента</p>
+                            <input asp-for="NameOfClient" type="text" class="input-clientName">
+                            <p>Введите название продукта</p>
+                            <input asp-for="NameOfProduct" type="text" class="input-productName">
+                            <p>Выберите тип продукта</p>
+                            <p>
+                                <select asp-for="Type">
+                                    <option value="Овощи">Овощи</option>
+                                    <option value="Фрукты">Фрукты</option>
+                                    <option value="Другое">Другое</option>
+                                </select>
+                            </p>
+                            <p>Введите номер телефона клиента</p>
+                            <input asp-for="PhoneNumber" type="text" class="input-number">
+                            <p>Введите массу (кг)</p>
+                            <input asp-for="Capacity" type="text" class="input-mass">
+                            <input type="submit" class="submitForm" value="Отправить">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popup2" class="popup2">
+            <a href="#header" class="popup__area"></a>
+            <div class="popup2__body">
+                <div class="popup2__content">
+                    <a href="#header" class="popup2__close">X</a>
+                    <div class="popup2__title">Изменить данные</div>
+                    <form asp-action="ChangeRecord" method="post">
+                        <div class="input-container">
+                            <p>Введите имя клиента</p>
+                            <input asp-for="NameOfClient" type="text" class="input-clientName">
+                            <p>Введите название продукта</p>
+                            <input asp-for="NameOfProduct" type="text" class="input-productName">
+                            <p>Забрал (кг)</p>
+                            <input asp-for="Capacity" type="text" class="input-newMass">
+                            <input type="submit" class="submitForm">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accounting">
+        <a href="" class="accBtn">Подробный отчет</a>
+    </div>
+    <script src="~/script/script.js"></script>
+</body>
+
+</html>

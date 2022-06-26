@@ -1,0 +1,337 @@
+*{
+   margin: 0;
+   padding: 0;
+   border: 0;
+   text-decoration: none;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   box-sizing:border-box;
+}
+body {
+   height: 100%;
+   width: 100%;
+   line-height: 1;
+   font-size: 14px;
+   background-color: #E1B16A;
+   outline: none;
+   text-transform: none;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+}
+header {
+   position: fixed;
+   z-index: 2;
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   width: 90%;
+   padding: 30px 0;
+   background-color: #78A5A3;
+   border-radius: 10px;
+   .mainLogo {
+      display: block;
+      margin: 0 auto;
+      font-size: 33px;
+      font-weight: 600;
+      color: #444C5C;
+   }
+}
+.main-body {
+   width: 90%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px 0;
+   margin: 0 0 0 0;
+}
+.table {
+   min-height: 500px;
+   background-color: #78A5A3;
+   padding: 15px;
+   display: flex;
+   border-radius: 10px;
+}
+.clients {
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+}
+.clients__item {
+   border: #444C5C 2px solid;
+   padding: 10px;
+   margin: 3px 4px;
+   width: 150px;
+   color: #444C5C;
+   border-radius: 3px;
+}
+.type {
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+}
+.type__item {
+   border: #444C5C 2px solid;
+   padding: 10px;
+   margin: 3px 4px;
+   width: 160px;
+   color: #444C5C;
+   border-radius: 3px;
+}
+.number {
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+}
+.number__item {
+   border: #444C5C 2px solid;
+   padding: 10px;
+   margin: 3px 4px;
+   width: 130px;
+   color: #444C5C;
+   border-radius: 3px;
+}
+.date {
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+}
+.date__item {
+   border: #444C5C 2px solid;
+   padding: 10px;
+   margin: 3px 4px;
+   width: 130px;
+   color: #444C5C;
+   border-radius: 3px;
+}
+.phone-nubmer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-number__item {
+    border: #444C5C 2px solid;
+    padding: 10px;
+    margin: 3px 4px;
+    width: 180px;
+    color: #444C5C;
+    border-radius: 3px;
+}
+.diagram {
+   background-color: #F9F9FF;
+}
+.db-main {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 90%;
+   background-color: #78A5A3;
+   padding: 30px;
+   border-radius: 10px;
+}
+.dataBase {
+   font-size: 20px;
+   color: #444C5C;
+}
+.change-btn__btn {
+   padding: 10px 30px;
+   color: #444C5C;
+   border: 1px solid #444C5C;
+   border-radius: 4px;
+}
+.popup1 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   z-index: 3;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.801);
+   top: 0;
+   left: 0;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.7s ease 0s;
+}
+.popup1__area {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+}
+.popup1:target {
+   opacity: 1;
+   visibility: visible;
+}
+.poup1__body {
+   min-height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.popup1__content {
+   background-color: #78A5A3;
+   color: #000;
+   max-width: 800px;
+   padding: 30px;
+   position: relative;
+   border-radius: 10px;
+   padding: 50px 40px;
+}
+.popup1__close {
+   position: absolute;
+   right: 13px;
+   top: 13px;
+   color: #444C5C;
+   text-decoration: none;
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   font-size: 18px;
+}
+.popup1__title {
+   font-size: 40px;
+   margin: 0px 0px 30px 0px;
+   color: #444C5C;
+}
+.input-container {
+   display: flex;
+   flex-direction: column;
+   p {
+      color: #444C5C;
+      font-size: 18px;
+   }
+   form {
+      margin: 10px 0;
+      option {
+         width: 70px;
+         font-size: 17px;
+         color: #444C5C;
+      }
+   }
+}
+.submitForm {
+   padding: 7px 14px;
+   text-transform: uppercase;
+   color: #444C5C;
+   border-radius: 5px;
+   background-color: rgba(0, 0, 0, 0);
+   border: 2px solid #444C5C;
+   margin: 40px 0 0 0;
+}
+.submit1 {
+   padding: 7px 14px;
+   margin: 8px 0 0 0;
+   border-radius: 3px;
+   border: 1px solid #444C5C;
+   font-size: 15px;
+   color: #444C5C;
+}
+.input-clientName {
+   width: 150px;
+   height: 30px;
+   border: #444C5C 1px solid;
+   margin: 5px 0 10px 0;
+   color: #444C5C;
+   border-radius: 3px;
+}
+.input-productName {
+   width: 150px;
+   height: 30px;
+   border: #444C5C 1px solid;
+   margin: 5px 0 10px 0;
+   border-radius: 3px;
+}
+.input-number {
+   width: 150px;
+   height: 30px;
+   border: #444C5C 1px solid;
+   margin: 5px 0 10px 0;
+   border-radius: 3px;
+}
+.input-mass {
+   width: 150px;
+   height: 30px;
+   border: #000 1px solid;
+   border-radius: 3px;
+   margin: 5px 0 0 0;
+}
+.x-icon {
+   width: 13px;
+   height: 13px;
+}
+.popup2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   z-index: 3;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.801);
+   top: 0;
+   left: 0;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.7s ease 0s;
+}
+.popup2__area {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+}
+.popup2:target {
+   opacity: 1;
+   visibility: visible;
+}
+.poup2__body {
+   min-height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 30px 10px;
+}
+.popup2__content {
+   background-color: #78A5A3;
+   color: #000;
+   max-width: 800px;
+   padding: 30px;
+   position: relative;
+   border-radius: 10px;
+   padding: 50px 40px;   
+}
+.popup2__close {
+   position: absolute;
+   right: 13px;
+   top: 13px;
+   text-decoration: none;
+   color: #444C5C;
+   text-decoration: none;
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   font-size: 18px;
+}
+.popup2__title {
+   font-size: 40px;
+   margin: 0px 0px 20px 0;
+   color: #444C5C;
+}
+.input-newMass {
+   width: 150px;
+   height: 30px;
+   border: #000 1px solid;
+   border-radius: 3px;
+   margin: 5px 0 0 0;
+}
+.accounting {
+   padding: 50px;
+}
+.accBtn {
+   color: #444C5C;
+   text-transform: uppercase;
+   font-size: 18px;
+   border: 1px solid #444C5C;
+   padding: 10px 20px;
+}
