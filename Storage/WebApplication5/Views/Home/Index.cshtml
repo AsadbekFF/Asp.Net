@@ -23,15 +23,27 @@
       data.addRows([
           ['Пусто', @ViewBag.Types.PercentageOfEmptiness],
           ['Фрукты', @ViewBag.Types.PercentageOfFruits],
-         ['Овощи', @ViewBag.Types.PercentageOfVegetables],
-         ['Другое', @ViewBag.Types.PercentageOfOthers]
+          ['Овощи', @ViewBag.Types.PercentageOfVegetables],
+          ['Другое', @ViewBag.Types.PercentageOfOthers]
       ]);
 
-      var options = {
-         'title': 'Инфодиаграмма', 'width': 700, 'height': 700, 'legend': 'left', 'is3D': false,
-         'colors': ['#6e6e6e', '#9c2e03', '#048c28', '#f5d467'],
-         'backgroundColor': '#E1B16A',
-      };
+       var options = {
+           'title': 'Инфодиаграмма', 'width': 600, 'height': 600, 'legend': { position: 'bottom', textStyle: { color: '#444C5C', fontSize: 14 } },
+           'colors': ['#6e6e6e', '#9c2e03', '#048c28', '#f5d467'],
+           'backgroundColor': '#fff',
+           'chartArea': { left: 120, top: 100, width: '500px', height: '500px' },
+           'fontSize': '16',
+           'fontName': 'Times New Roman',
+           'titleTextStyle': {
+               color: '#444C5C'
+           },
+           'tooltip': {
+               textStyle: {
+                   color: '#444C5C',
+                   fontSize: '14'
+               }
+           }
+       };
       var chart = new google.visualization.PieChart(document.getElementById('root'));
       chart.draw(data, options);
    }
@@ -161,7 +173,113 @@
         </div>
     </div>
     <div class="accounting">
-        <a href="" class="accBtn">Подробный отчет</a>
+        <a href="#popup3" class="accBtn">Получить отчет</a>
+        <div id="popup3" class="popup3">
+            <a href="#header" class="popup__area"></a>
+            <div class="popup3__body">
+                <div class="popup3__content">
+                    <a href="#header" class="popup3__close"><img src="images/x-icon.png" alt="x" class="close-btn"></a>
+                    <div class="popup2__title">Отчет</div>
+                    <div class="report-wrapper">
+                        <div class="come-report">
+                            <span>Приход</span>
+                            <div class="come-wrapper">
+                                <div class="come-type">
+                                    <div class="come-type__item">
+                                        Название продукта
+                                    </div>
+                                    @foreach (var item in ViewBag.ReportProducts)
+                                    {
+                                        <div class="come-type__item">
+                                            @item.NameOfProduct
+                                        </div>
+                                    }
+
+                                </div>
+                                <div class="come-mass">
+                                    <div class="come-mass__item">
+                                        Масса (кг)
+                                    </div>
+                                    @foreach (var item in ViewBag.ReportProducts)
+                                    {
+                                        <div class="come-mass__item">
+                                            @item.IncomeCapacity
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outcome-report">
+                            <span>Уход</span>
+                            <div class="outcome-wrapper">
+                                <div class="outcome-type">
+                                    <div class="outcome-type__item">
+                                        Название продукта
+                                    </div>
+                                    @foreach (var item in ViewBag.ReportProducts)
+                                    {
+                                        <div class="outcome-type__item">
+                                            @item.NameOfProduct
+                                        </div>
+                                    }
+                                </div>
+                                <div class="outcome-mass">
+                                    <div class="outcome-mass__item">
+                                        Масса (кг)
+                                    </div>
+                                    @foreach (var item in ViewBag.ReportProducts)
+                                    {
+                                        <div class="outcome-mass__item">
+                                            @item.OutCapacity
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="type-report">
+                            <Span>Кол-во типов продуктов</Span>
+                            <div class="type-report-wrapper">
+                                <div class="type-report-type">
+                                    <div class="type-report__item">
+                                        Название продукта
+                                    </div>
+                                    @foreach (var item in ViewBag.RepTypes)
+                                    {
+                                        <div class="type-report__item">
+                                            @item.Type
+                                        </div>
+                                    }
+                                </div>
+                                <div class="type-report-mass">
+                                    <div class="type-report-mass__item">
+                                        Масса (кг)
+                                    </div>
+                                    @foreach (var item in ViewBag.RepTypes)
+                                    {
+                                <div class="type-report-mass__item">
+                                    @item.Capacity
+                                </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="all-report">
+                            <span>Общее кол-во продуктов</span>
+                            <div class="all-report-wrapper">
+                                <div class="all-report-mass">
+                                    <div class="all-report-mass__item">
+                                        Масса (кг)
+                                    </div>
+                                    <div class="all-report-mass__item">
+                                        @ViewBag.AllCapacity
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="~/script/script.js"></script>
 </body>

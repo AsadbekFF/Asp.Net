@@ -7,10 +7,10 @@ namespace WebApplication5.Models
 {
     public class Type
     {
-        public int PercentageOfFruits { get; set; }
-        public int PercentageOfVegetables { get; set; }
-        public int PercentageOfOthers { get; set; }
+        public int? PercentageOfFruits { get; set; }
+        public int? PercentageOfVegetables { get; set; }
+        public int? PercentageOfOthers { get; set; }
 
-        public int PercentageOfEmptiness { get { return 100 - PercentageOfFruits - PercentageOfVegetables - PercentageOfOthers; } }
+        public int? PercentageOfEmptiness { get { return 100 - PercentageOfFruits - PercentageOfVegetables - PercentageOfOthers; } }
     }
 }

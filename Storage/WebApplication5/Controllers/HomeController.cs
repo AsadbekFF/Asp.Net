@@ -40,12 +40,12 @@ namespace WebApplication5.Controllers
                 while (await reader.ReadAsync())
                 {
                     Product product = new();
-                    product.ID = (int)reader["ID"];
+                    product.ID = (int?)reader["ID"];
                     product.NameOfClient = reader["NameOfClient"].ToString();
                     product.NameOfProduct = reader["NameOfProduct"].ToString();
                     product.Type = reader["Type"].ToString();
                     product.PhoneNumber = reader["PhoneNumber"].ToString();
-                    product.Capacity = (int)reader["Capacity"];
+                    product.Capacity = (int?)reader["Capacity"];
                     product.DateOfArrival = (DateTime)reader["DateOfArrival"];
                     //if (reader["DateOfDeparture"].ToString().ToUpper() == "NULL")
                     //{
@@ -71,6 +71,57 @@ namespace WebApplication5.Controllers
             return products;
         }
 
+        public async Task<List<ReportProducts>> GetReportRecords()
+        {
+            List<ReportProducts> products = new List<ReportProducts>();
+            SqlConnection conn = new(@"Server=(localdb)\MSSQLLocalDB;Database=Products;Trusted_Connection=True;");
+            //SqlConnection conn = new(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Hospital;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            conn.Open();
+
+            SqlCommand sqlCommandGetData = new("Select * from ReportProducts", conn);
+
+            using (SqlDataReader reader = sqlCommandGetData.ExecuteReader())
+            {
+                while (await reader.ReadAsync())
+                {
+                    ReportProducts product = new();
+                    product.ID = (int?)reader["ID"];
+                    product.NameOfProduct = reader["NameOfProduct"].ToString();
+                    product.Type = reader["Type"].ToString();
+                    product.IncomeCapacity = (int?)reader["IncomeCapacity"];
+                    try
+                    {
+                        product.OutCapacity = (int?)reader["OutCapacity"];
+                    }
+                    catch
+                    {
+                        product.OutCapacity = null;
+                    }
+                    product.MyProperty = (DateTime?)reader["DateOfArrival"];
+                    //if (reader["DateOfDeparture"].ToString().ToUpper() == "NULL")
+                    //{
+                    //    product.DateOfLeaving = null;
+                    //}
+                    //else
+                    //{
+                    //    product.DateOfLeaving = (DateTime?)reader["DateOfDeparture"];
+                    //}
+                    try
+                    {
+                        product.MyProperty2 = (DateTime?)reader["DateOfDeparture"];
+                    }
+                    catch
+                    {
+                        product.MyProperty2 = null;
+                    }
+
+                    products.Add(product);
+                }
+            }
+
+            return products;
+        }
+
         public async Task<IActionResult> ChangeRecord(Product product)
         {
             var records = await GetRecords();
@@ -84,10 +135,15 @@ namespace WebApplication5.Controllers
 
                 sqlCommand.ExecuteNonQuery();
             }
-            else
+
+            var reportProducts = await GetReportRecords();
+            if (reportProducts.Any(x => x.NameOfProduct == product.NameOfProduct))
             {
-                await ShouldBeDone();
-                return View("Index");
+                SqlCommand sqlCommand = new("Update ReportProducts " +
+                $"Set OutCapacity=OutCapacity+{product.Capacity} " +
+                $"Where NameOfProduct=N'{product.NameOfProduct}'", conn);
+
+                sqlCommand.ExecuteNonQuery();
             }
 
             await ShouldBeDone();
@@ -114,6 +170,23 @@ namespace WebApplication5.Controllers
 
                 cmd.ExecuteNonQuery();
             }
+
+
+            var reportProducts = await GetReportRecords();
+            if (reportProducts.Any(x => x.NameOfProduct == product.NameOfProduct))
+            {
+                SqlCommand sqlCommand = new("Update ReportProducts " +
+                $"Set IncomeCapacity=IncomeCapacity+{product.Capacity} " +
+                $"Where NameOfProduct=N'{product.NameOfProduct}'", conn);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            else
+            {
+                SqlCommand cmd = new($"INSERT INTO ReportProducts (NameOfProduct, Type, IncomeCapacity, DateOfArrival) VALUES (N'{product.NameOfProduct}', N'{product.Type}', N'{product.Capacity}', GETDATE())", conn);
+
+                cmd.ExecuteNonQuery();
+            }
             //SqlConnection conn = new(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Hospital;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //CheckingFormatOfVisitorInput(visitors);
 
@@ -125,12 +198,12 @@ namespace WebApplication5.Controllers
         private async Task ShouldBeDone()
         {
             var products = await GetRecords();
-
+            var reportRecords = await GetReportRecords();
             ViewData["Products"] = products;
 
-            var item = from x in products
+            IEnumerable<RepType> item = from x in products
                        group x by x.Type into Group
-                       select new
+                       select new RepType
                        {
                            Type = Group.Key,
                            Capacity = Group.Sum(x => x.Capacity)
@@ -138,12 +211,18 @@ namespace WebApplication5.Controllers
 
             Models.Type type = new()
             {
-                PercentageOfFruits = item.Where(x => x.Type == "Овощи").Sum(x => x.Capacity) / 2500,
-                PercentageOfVegetables = item.Where(x => x.Type == "Фрукты").Sum(x => x.Capacity) / 2500,
+                PercentageOfFruits = item.Where(x => x.Type == "Фрукты").Sum(x => x.Capacity) / 2500,
+                PercentageOfVegetables = item.Where(x => x.Type == "Овощи").Sum(x => x.Capacity) / 2500,
                 PercentageOfOthers = item.Where(x => x.Type == "Другое").Sum(x => x.Capacity) / 2500
             };
 
+            ViewData["AllCapacity"] = item.Sum(x => x.Capacity);
+
+            ViewData["RepTypes"] = item;
+
             ViewData["Types"] = type;
+
+            ViewData["ReportProducts"] = reportRecords;
         }
 
         //public async Task<dynamic> Assignment(List<Product> products)
